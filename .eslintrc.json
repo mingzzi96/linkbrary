@@ -1,0 +1,95 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "createDefaultProgram": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "ignorePatterns": ["node_modules/"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": 0,
+    "@typescript-eslint/semi": "off",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".ts", ".tsx"] }],
+    "no-useless-catch": "off",
+    "react/function-component-definition": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", ["parent", "sibling", "index"], "object", "type", "unknown"],
+        "pathGroups": [
+          {
+            "pattern": "{react*,react*/**,react-dom/**,@tanstack/react-query/**}",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "@{app,pages,widgets,features,entities,shared}/**/*",
+            "group": "internal",
+            "position": "before"
+          },
+          {
+            "pattern": "@{layout,components,assets}/**/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@{lib,utils,hooks,event,api}/**/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@{store,slice}/**/*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "@pages/**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "@components/**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "{.,..}/**/*.style",
+            "group": "unknown"
+          },
+          {
+            "pattern": "*.style",
+            "group": "unknown"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.mjs"],
+      "parserOptions": {
+        "project": null
+      }
+    }
+  ]
+}
