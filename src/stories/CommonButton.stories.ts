@@ -10,6 +10,10 @@ const meta = {
   //   layout: 'centered',
   // },
   argTypes: {
+    size: {
+      options: ['large', 'medium'],
+      control: { type: 'radio' },
+    },
     backgroundColor: {
       options: ['gradient', 'violet', 'red'],
       control: { type: 'radio' },
@@ -24,6 +28,8 @@ export const Large: Story = {
   args: {
     onClickHandler: () => console.log('click'),
     children: '버튼입니다.',
+    size: 'large',
+    backgroundColor: 'gradient',
   },
 };
 
@@ -32,5 +38,6 @@ export const Medium: Story = {
     onClickHandler: () => console.log('click'),
     children: '버튼입니다.',
     size: 'medium',
+    backgroundColor: 'gradient',
   },
 };
