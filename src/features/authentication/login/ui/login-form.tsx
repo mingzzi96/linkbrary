@@ -1,23 +1,26 @@
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { postLogIn } from '@features/authentication/login/api';
 import { CommonInput } from '@shared/ui/inputs/common-input';
+
+import { usePostLogin } from '../hooks';
 
 export const LoginForm = () => {
   const {
     register,
+    getValues,
     formState: { errors },
     handleSubmit,
   } = useForm({ mode: 'onBlur', shouldFocusError: true });
 
-  const handleSubmitLogin: SubmitHandler<FieldValues> = async (data) => {
-    const result = await postLogIn(data.email, data.password);
+  // ? : input onchange 일어날 때 마다 데이터 페칭하고 있음
 
-    if (result === 400) {
+  const { isLoading, data } = usePostLogin(getValues('email'), getValues('password'));
+
+  const handleSubmitLogin: SubmitHandler<FieldValues> = async () => {
+    if (data === 400) {
       return toast.error('이메일과 비밀번호를 다시 확인해 주세요.');
     }
-
     return toast.success('로그인 성공!');
   };
 
@@ -55,7 +58,9 @@ export const LoginForm = () => {
           },
         })}
       />
-      <button type='submit'>로그인하기</button>
+      <button type='submit' disabled={isLoading}>
+        {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'}
+      </button>
     </form>
   );
 };
