@@ -1,6 +1,6 @@
 import { ReactNode, forwardRef } from 'react';
 
-import * as S from './style/common-input-style';
+import * as S from './common-input-style';
 
 interface CommonInputProps {
   label?: string;

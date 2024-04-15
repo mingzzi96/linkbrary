@@ -17,16 +17,16 @@ export const CommonInputWrap = styled.div<CommonInputWrapProps>`
     width: 100%;
     font-size: 1.6rem;
     border-radius: 8px;
-    border: 1px solid ${({ theme }) => theme.gray_CCD5E3};
+    border: 1px solid ${({ theme }) => theme.color.gray_CCD5E3};
 
     &:focus-within {
-      border: 1px solid ${({ theme }) => theme.primary_6D6AFE};
+      border: 1px solid ${({ theme }) => theme.color.primary_6D6AFE};
     }
   }
 
   &.error {
     .input-box {
-      border: 1px solid ${({ theme }) => theme.red_FF5B56};
+      border: 1px solid ${({ theme }) => theme.color.red_FF5B56};
     }
   }
 
@@ -35,13 +35,13 @@ export const CommonInputWrap = styled.div<CommonInputWrapProps>`
     padding: 18px 15px;
 
     &::placeholder {
-      color: ${({ theme }) => theme.gray_9FA6B2};
+      color: ${({ theme }) => theme.color.gray_9FA6B2};
     }
   }
 
   .input-error {
     font-size: 1.4rem;
     margin-top: 8px;
-    color: ${({ theme }) => theme.red_FF5B56};
+    color: ${({ theme }) => theme.color.red_FF5B56};
   }
 `;
