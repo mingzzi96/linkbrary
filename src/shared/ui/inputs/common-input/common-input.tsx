@@ -1,6 +1,6 @@
 import { ReactNode, forwardRef } from 'react';
 
-import StCommonInput from './style/common-input-style';
+import * as S from './style/common-input-style';
 
 interface CommonInputProps {
   id: string;
@@ -12,12 +12,12 @@ interface CommonInputProps {
 const CommonInput = forwardRef<HTMLInputElement, CommonInputProps>(
   ({ id, inputType, placeholder, errorMessage, ...rest }, ref) => {
     return (
-      <StCommonInput>
+      <S.CommonInputWrap>
         <div>
           <input ref={ref} id={id} type={inputType} placeholder={placeholder} {...rest} />
         </div>
         {errorMessage && <p className='input-error'>{errorMessage}</p>}
-      </StCommonInput>
+      </S.CommonInputWrap>
     );
   },
 );
