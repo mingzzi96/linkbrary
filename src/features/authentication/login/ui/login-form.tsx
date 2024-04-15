@@ -1,6 +1,7 @@
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+import { CommonButton } from '@shared/ui/buttons/common-button';
 import { CommonInput } from '@shared/ui/inputs/common-input';
 
 import * as S from './login-form-style';
@@ -61,9 +62,9 @@ export const LoginForm = () => {
             },
           })}
         />
-        <button type='submit' disabled={isLoading}>
+        <CommonButton backgroundColor='gradient' onClickHandler={handleSubmitLogin} buttonType='submit'>
           {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'}
-        </button>
+        </CommonButton>
       </form>
     </S.LoginFormWrap>
   );

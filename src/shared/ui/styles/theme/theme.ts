@@ -9,7 +9,7 @@ export const theme = {
 
     white_FFFFFF: '#FFFFFF',
 
-    primary_6D6AFE: '#6D6AFE',
+    violet_6D6AFE: '#6D6AFE',
 
     red_FF5B56: '#FF5B56',
 
@@ -18,6 +18,8 @@ export const theme = {
     gray_CCD5E3: '#CCD5E3',
     gray_E7EFFB: '#E7EFFB',
     gray_F0F6FF: '#F0F6FF',
+
+    gradient: 'linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)',
   },
 } as const;
 

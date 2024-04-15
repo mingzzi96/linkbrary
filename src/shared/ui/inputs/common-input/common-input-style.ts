@@ -11,16 +11,20 @@ export const CommonInputWrap = styled.div<CommonInputWrapProps>`
     font-size: 1.4rem;
     margin-bottom: 12px;
     display: block;
+    text-align: left;
   }
 
   .input-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     width: 100%;
-    font-size: 1.6rem;
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.color.gray_CCD5E3};
+    padding: 18px 15px;
 
     &:focus-within {
-      border: 1px solid ${({ theme }) => theme.color.primary_6D6AFE};
+      border: 1px solid ${({ theme }) => theme.color.violet_6D6AFE};
     }
   }
 
@@ -31,8 +35,8 @@ export const CommonInputWrap = styled.div<CommonInputWrapProps>`
   }
 
   input {
-    width: 100%;
-    padding: 18px 15px;
+    width: calc(100% - 24px);
+    font-size: 1.6rem;
 
     &::placeholder {
       color: ${({ theme }) => theme.color.gray_9FA6B2};
