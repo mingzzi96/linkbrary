@@ -1,8 +1,7 @@
 import { AxiosError } from 'axios';
 
+import { axiosInstance } from '@shared/api/instance';
 import { REQUEST_URLS } from '@shared/constants/api';
-
-import { axiosInstance } from '../instance';
 
 const postLogIn = async (email: string, password: string) => {
   try {

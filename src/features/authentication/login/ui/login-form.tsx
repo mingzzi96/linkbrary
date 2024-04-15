@@ -1,7 +1,7 @@
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { postLogIn } from '@shared/api/authentication';
+import { postLogIn } from '@features/authentication/login/api';
 import { CommonInput } from '@shared/ui/inputs/common-input';
 
 export const LoginForm = () => {
