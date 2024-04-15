@@ -4,9 +4,9 @@ import { ThemeProvider } from 'styled-components';
 
 import { theme } from '@shared/ui/styles/theme';
 
-type StyldThemeProviderProps = PropsWithChildren;
+type StyledThemeProviderProps = PropsWithChildren;
 
-const StyledThemeProvider = ({ children }: StyldThemeProviderProps) => {
+const StyledThemeProvider = ({ children }: StyledThemeProviderProps) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
