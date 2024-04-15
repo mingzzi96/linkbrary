@@ -1,32 +1,19 @@
 export const theme = {
   color: {
     black_000000: '#000000',
-    black_171717: '#171717',
-    black_333236: '#333236',
-    black_4B4B4B: '#4B4B4B',
-
-    gray_787486: '#787486',
-    gray_9FA6B2: '#9FA6B2',
-    gray_D9D9D9: '#D9D9D9',
-    gray_EEEEEE: '#EEEEEE',
-    gray_FAFAFA: '#FAFAFA',
+    black_111322: '#111322',
 
     white_FFFFFF: '#FFFFFF',
 
-    violet_5534DA: '#5534DA',
-    violet_F1EFFD: '#F1EFFD',
+    primary_6D6AFE: '#6D6AFE',
 
-    red_D6173A: '#D6173A',
+    red_FF5B56: '#FF5B56',
 
-    green_7AC555: '#7AC555',
-
-    orange_FFA500: '#FFA500',
-
-    blue_76A6EA: '#76A5EA',
-
-    pink_E876EA: '#E876EA',
-
-    purple_760DDE: '#760DDE',
+    gray_373740: '#373740',
+    gray_9FA6B2: '#9FA6B2',
+    gray_CCD5E3: '#CCD5E3',
+    gray_E7EFFB: '#E7EFFB',
+    gray_F0F6FF: '#F0F6FF',
   },
 } as const;
 

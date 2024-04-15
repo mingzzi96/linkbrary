@@ -3,6 +3,7 @@ import { ReactNode, forwardRef } from 'react';
 import * as S from './style/common-input-style';
 
 interface CommonInputProps {
+  label?: string;
   id: string;
   inputType: string;
   placeholder: string;
@@ -10,13 +11,18 @@ interface CommonInputProps {
 }
 
 const CommonInput = forwardRef<HTMLInputElement, CommonInputProps>(
-  ({ id, inputType, placeholder, errorMessage, ...rest }, ref) => {
+  ({ label, id, inputType, placeholder, errorMessage, ...rest }, ref) => {
     return (
-      <S.CommonInputWrap>
-        <div>
+      <S.CommonInputWrap className={errorMessage ? 'error' : ''}>
+        {label && <label htmlFor={id}>{label}</label>}
+        <div className='input-box'>
           <input ref={ref} id={id} type={inputType} placeholder={placeholder} {...rest} />
         </div>
-        {errorMessage && <p className='input-error'>{errorMessage}</p>}
+        {errorMessage && (
+          <p aria-live='assertive' className='input-error'>
+            {errorMessage}
+          </p>
+        )}
       </S.CommonInputWrap>
     );
   },

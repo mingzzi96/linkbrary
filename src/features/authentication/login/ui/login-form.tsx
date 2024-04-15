@@ -26,6 +26,7 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit(handleSubmitLogin)}>
       <CommonInput
+        label='이메일'
         id='email'
         inputType='email'
         placeholder='이메일을 입력해 주세요.'
@@ -42,6 +43,7 @@ export const LoginForm = () => {
         })}
       />
       <CommonInput
+        label='비밀번호'
         id='password'
         inputType='password'
         placeholder='비밀번호를 입력해 주세요.'
