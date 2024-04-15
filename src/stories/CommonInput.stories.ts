@@ -6,10 +6,9 @@ import type { StoryObj } from '@storybook/react';
 const meta = {
   title: 'input/CommonInput',
   component: CommonInput,
-  parameters: {
-    layout: 'centered',
-  },
-  // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
+  // parameters: {
+  //   layout: 'centered',
+  // },
 };
 
 export default meta;
