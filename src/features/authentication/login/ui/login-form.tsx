@@ -13,8 +13,7 @@ export const LoginForm = () => {
     handleSubmit,
   } = useForm({ mode: 'onBlur', shouldFocusError: true });
 
-  // ? : input onchange 일어날 때 마다 데이터 페칭하고 있음
-
+  // TODO: useMutation으로 바꿔야하는데 안되네 ㅜㅜ
   const { isLoading, data } = usePostLogin(getValues('email'), getValues('password'));
 
   const handleSubmitLogin: SubmitHandler<FieldValues> = async () => {
