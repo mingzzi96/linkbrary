@@ -4,7 +4,7 @@ import type { StoryObj } from '@storybook/react';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: 'atom/CommonButton',
+  title: 'atoms/CommonButton',
   component: CommonButton,
   // parameters: {
   //   layout: 'centered',
@@ -26,7 +26,9 @@ type Story = StoryObj<typeof meta>;
 
 export const Large: Story = {
   args: {
-    onClickHandler: () => console.log('click'),
+    onClickHandler: () => {
+      return 'click';
+    },
     children: '버튼입니다.',
     size: 'large',
     backgroundColor: 'gradient',
@@ -35,7 +37,9 @@ export const Large: Story = {
 
 export const Medium: Story = {
   args: {
-    onClickHandler: () => console.log('click'),
+    onClickHandler: () => {
+      return 'click';
+    },
     children: '버튼입니다.',
     size: 'medium',
     backgroundColor: 'gradient',

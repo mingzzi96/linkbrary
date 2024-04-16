@@ -9,6 +9,7 @@ interface CommonButtonProps {
   size?: string;
   backgroundColor?: string;
   buttonType?: 'button' | 'submit' | 'reset' | undefined;
+  className?: string;
 }
 
 /**
@@ -27,9 +28,15 @@ const CommonButton = ({
   size = 'large',
   backgroundColor = 'violet',
   buttonType = 'button',
+  className,
 }: CommonButtonProps) => {
   return (
-    <S.CommonButton type={buttonType} className={size} $backgroundColor={backgroundColor} onClick={onClickHandler}>
+    <S.CommonButton
+      type={buttonType}
+      className={`${size} ${className}`}
+      $backgroundColor={backgroundColor}
+      onClick={onClickHandler}
+    >
       {children}
     </S.CommonButton>
   );

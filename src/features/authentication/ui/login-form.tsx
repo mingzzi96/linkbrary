@@ -62,7 +62,12 @@ export const LoginForm = () => {
             },
           })}
         />
-        <CommonButton backgroundColor='gradient' onClickHandler={handleSubmitLogin} buttonType='submit'>
+        <CommonButton
+          className='submit-button'
+          backgroundColor='gradient'
+          onClickHandler={handleSubmitLogin}
+          buttonType='submit'
+        >
           {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'}
         </CommonButton>
       </form>

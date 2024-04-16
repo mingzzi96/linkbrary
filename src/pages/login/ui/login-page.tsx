@@ -1,4 +1,4 @@
-import { LoginForm } from '@features/authentication/login';
+import { LoginForm } from '@features/authentication';
 
 import StLoginPage from './login-page-style';
 

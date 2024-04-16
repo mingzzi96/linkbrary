@@ -45,6 +45,7 @@ export const CommonInputWrap = styled.div<CommonInputWrapProps>`
 
   .input-error {
     font-size: 1.4rem;
+    text-align: left;
     margin-top: 8px;
     color: ${({ theme }) => theme.color.red_FF5B56};
   }
