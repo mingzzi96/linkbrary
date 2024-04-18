@@ -1,5 +1,4 @@
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { CommonButton } from '@shared/ui/buttons/common-button';
 import { CommonInput } from '@shared/ui/inputs/common-input';
@@ -7,34 +6,22 @@ import { CommonInput } from '@shared/ui/inputs/common-input';
 import * as S from './login-form-style';
 import { usePostLoginMutation } from '../hooks';
 
+interface UseFormType {
+  email: string;
+  password: string;
+}
+
 export const LoginForm = () => {
   const {
     register,
-    getValues,
     formState: { errors },
     handleSubmit,
-    setError,
-  } = useForm({ mode: 'onBlur', shouldFocusError: true });
+  } = useForm<UseFormType>({ mode: 'onBlur', shouldFocusError: true }); // useForm 타입 지정 필요
 
-  const { mutate } = usePostLoginMutation(getValues('email'), getValues('password'));
+  const { mutate } = usePostLoginMutation();
 
-  const handleSubmitLogin: SubmitHandler<FieldValues> = async () => {
-    mutate(undefined, {
-      onSuccess: () => {
-        toast.success('로그인 성공!');
-      },
-      onError: () => {
-        // https://react-hook-form.com/docs/useform/seterror
-        setError(
-          'login',
-          {
-            type: 'manual',
-            message: 'Failed to login',
-          },
-          { shouldFocus: true },
-        );
-      },
-    });
+  const handleSubmitLogin: SubmitHandler<UseFormType> = async (data) => {
+    mutate({ email: data.email, password: data.password });
     // if (data === 400) {
     //   return toast.error('이메일과 비밀번호를 다시 확인해 주세요.');
     // }
@@ -43,6 +30,7 @@ export const LoginForm = () => {
 
   return (
     <S.LoginFormWrap>
+      {/* {register('password')} */}
       <form onSubmit={handleSubmit(handleSubmitLogin)}>
         <CommonInput
           label='이메일'
