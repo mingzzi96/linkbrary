@@ -6,7 +6,6 @@ import { LoginSuccessResponse, PostLoginParam, postLogIn } from '@shared/api/aut
 
 export const usePostLoginMutation = () => {
   return useMutation<LoginSuccessResponse, Error, PostLoginParam>({
-    // 하나의 파람만 넘겨줄 수 있어서 객체로 보낸다.
     mutationFn: ({ email, password }) => postLogIn(email, password),
     onSuccess: (data) => {
       if (data === 400) {
