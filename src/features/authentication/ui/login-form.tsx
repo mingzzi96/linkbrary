@@ -1,31 +1,23 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import { PostLoginParam } from '@shared/api/authentication-api';
 import { CommonButton } from '@shared/ui/buttons/common-button';
 import { CommonInput } from '@shared/ui/inputs/common-input';
 
 import * as S from './login-form-style';
 import { usePostLoginMutation } from '../hooks';
 
-interface UseFormType {
-  email: string;
-  password: string;
-}
-
 export const LoginForm = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
-  } = useForm<UseFormType>({ mode: 'onBlur', shouldFocusError: true }); // useForm 타입 지정 필요
+  } = useForm<PostLoginParam>({ mode: 'onBlur', shouldFocusError: true }); // useForm 타입 지정 필요
 
-  const { mutate } = usePostLoginMutation();
+  const { mutate: postLoginMutate } = usePostLoginMutation();
 
-  const handleSubmitLogin: SubmitHandler<UseFormType> = async (data) => {
-    mutate({ email: data.email, password: data.password });
-    // if (data === 400) {
-    //   return toast.error('이메일과 비밀번호를 다시 확인해 주세요.');
-    // }
-    // return toast.success('로그인 성공!');
+  const handleSubmitLogin: SubmitHandler<PostLoginParam> = async (data) => {
+    postLoginMutate({ email: data.email, password: data.password });
   };
 
   return (
@@ -66,12 +58,7 @@ export const LoginForm = () => {
             },
           })}
         />
-        <CommonButton
-          className='submit-button'
-          backgroundColor='gradient'
-          onClickHandler={handleSubmitLogin}
-          buttonType='submit'
-        >
+        <CommonButton className='submit-button' backgroundColor='gradient' buttonType='submit'>
           로그인하기
           {/* {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'} */}
         </CommonButton>

@@ -4,7 +4,7 @@ import { FieldValues, SubmitHandler } from 'react-hook-form';
 import * as S from './common-button-style';
 
 interface CommonButtonProps {
-  onClickHandler: (() => void) | SubmitHandler<FieldValues>;
+  onClickHandler?: (() => void) | SubmitHandler<FieldValues>;
   children: ReactNode;
   size?: string;
   backgroundColor?: string;
