@@ -5,7 +5,7 @@ import { CommonButton } from '@shared/ui/buttons/common-button';
 import { CommonInput } from '@shared/ui/inputs/common-input';
 
 import * as S from './login-form-style';
-import { usePostLogin } from '../hooks';
+import { usePostLoginMutation } from '../hooks';
 
 export const LoginForm = () => {
   const {
@@ -13,16 +13,32 @@ export const LoginForm = () => {
     getValues,
     formState: { errors },
     handleSubmit,
+    setError,
   } = useForm({ mode: 'onBlur', shouldFocusError: true });
 
-  // TODO: useMutation으로 바꿔야하는데 안되네 ㅜㅜ
-  const { isLoading, data } = usePostLogin(getValues('email'), getValues('password'));
+  const { mutate } = usePostLoginMutation(getValues('email'), getValues('password'));
 
   const handleSubmitLogin: SubmitHandler<FieldValues> = async () => {
-    if (data === 400) {
-      return toast.error('이메일과 비밀번호를 다시 확인해 주세요.');
-    }
-    return toast.success('로그인 성공!');
+    mutate(undefined, {
+      onSuccess: () => {
+        toast.success('로그인 성공!');
+      },
+      onError: () => {
+        // https://react-hook-form.com/docs/useform/seterror
+        setError(
+          'login',
+          {
+            type: 'manual',
+            message: 'Failed to login',
+          },
+          { shouldFocus: true },
+        );
+      },
+    });
+    // if (data === 400) {
+    //   return toast.error('이메일과 비밀번호를 다시 확인해 주세요.');
+    // }
+    // return toast.success('로그인 성공!');
   };
 
   return (
@@ -68,7 +84,8 @@ export const LoginForm = () => {
           onClickHandler={handleSubmitLogin}
           buttonType='submit'
         >
-          {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'}
+          로그인하기
+          {/* {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'} */}
         </CommonButton>
       </form>
     </S.LoginFormWrap>

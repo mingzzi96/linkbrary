@@ -11,6 +11,7 @@ const postLogIn = async (email: string, password: string) => {
   } catch (e) {
     const error = e as AxiosError;
     if (error.response?.status) {
+      console.log(error);
       return error.response?.status;
     }
     return error;

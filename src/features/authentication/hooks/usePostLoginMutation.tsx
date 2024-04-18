@@ -1,15 +1,15 @@
-import { toast } from 'react-toastify';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { useMutation } from '@tanstack/react-query';
-
+import { authenticationQueryKeys } from '@entities/authentication/api';
 import { postLogIn } from '@shared/api/authentication-api';
 
-const usePostLoginMutation = (email: string, password: string) => {
-  return useMutation(() => postLogIn(email, password), {
+export const usePostLoginMutation = (email: string, password: string) => {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: () => postLogIn(email, password),
     onSuccess: () => {
-      toast.success('로그인 성공!');
+      queryClient.invalidateQueries({ queryKey: authenticationQueryKeys.login(email, password) });
     },
   });
 };
-
-export { usePostLoginMutation };

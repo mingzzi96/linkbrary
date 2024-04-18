@@ -1,1 +1,1 @@
-export { usePostLogin } from './usePostLogin';
+export { usePostLoginMutation } from './usePostLoginMutation';
