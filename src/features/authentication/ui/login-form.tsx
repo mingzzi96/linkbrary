@@ -41,10 +41,6 @@ export const LoginForm = () => {
     );
   };
 
-  const handleNaverLogin = () => {
-    console.log('naver!');
-  };
-
   return (
     <S.AuthArea>
       <S.AuthLogoWrap>
@@ -104,7 +100,7 @@ export const LoginForm = () => {
             로그인하기
             {/* {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'} */}
           </CommonButton>
-          <OauthBox explainText='소셜 로그인' handleClickNaver={handleNaverLogin} />
+          <OauthBox />
         </form>
       </S.AuthFormWrap>
     </S.AuthArea>

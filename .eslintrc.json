@@ -27,6 +27,7 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": 0,
     "@typescript-eslint/semi": "off",
+    "@typescript-eslint/no-explicit-any": "warn",
     "react/jsx-filename-extension": [
       "warn",
       {
