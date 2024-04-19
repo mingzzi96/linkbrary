@@ -21,6 +21,7 @@ export const CommonInputWrap = styled.div<CommonInputWrapProps>`
     width: 100%;
     border-radius: 8px;
     border: 1px solid ${({ theme }) => theme.color.gray_CCD5E3};
+    background: ${({ theme }) => theme.color.white_FFFFFF};
     padding: 18px 15px;
 
     &:focus-within {

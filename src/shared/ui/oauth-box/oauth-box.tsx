@@ -12,8 +12,8 @@ const OauthBox = ({ explainText, handleClickNaver }: OauthBoxProps) => {
     <S.OauthBox>
       <p>{explainText}</p>
       <div className='button-box'>
-        <button onClick={handleClickNaver} type='button'>
-          네이버
+        <button onClick={handleClickNaver} type='button' className='oauth-button--naver'>
+          <img alt='네이버로 로그인하기' src='./assets/images/icons/naver_logo.png' />
         </button>
       </div>
     </S.OauthBox>
