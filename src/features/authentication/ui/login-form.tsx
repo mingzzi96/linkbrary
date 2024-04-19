@@ -1,4 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+
+import { AxiosError } from 'axios';
 
 import { PostLoginParam } from '@shared/api/authentication-api';
 import { CommonButton } from '@shared/ui/buttons/common-button';
@@ -6,6 +9,8 @@ import { CommonInput } from '@shared/ui/inputs/common-input';
 
 import * as S from './login-form-style';
 import { usePostLoginMutation } from '../hooks';
+
+// import { OauthBox } from '@shared/ui/oauth-box';
 
 export const LoginForm = () => {
   const {
@@ -16,8 +21,23 @@ export const LoginForm = () => {
 
   const { mutate: postLoginMutate } = usePostLoginMutation();
 
-  const handleSubmitLogin: SubmitHandler<PostLoginParam> = async (data) => {
-    postLoginMutate({ email: data.email, password: data.password });
+  const handleSubmitLogin: SubmitHandler<PostLoginParam> = async (value) => {
+    postLoginMutate(
+      { email: value.email, password: value.password },
+      {
+        onSuccess: () => {
+          return toast.success('로그인 성공!');
+        },
+        onError: (error) => {
+          if (error instanceof AxiosError) {
+            if (error.response?.status === 400) {
+              return toast.error('이메일과 비밀번호를 다시 확인해 주세요.');
+            }
+          }
+          return toast.error('로그인 실패.');
+        },
+      },
+    );
   };
 
   return (
@@ -62,6 +82,7 @@ export const LoginForm = () => {
           로그인하기
           {/* {isLoading ? '잠시만 기다려 주세요...' : '로그인하기'} */}
         </CommonButton>
+        {/* <OauthBox explainText='소셜 로그인' /> */}
       </form>
     </S.LoginFormWrap>
   );
