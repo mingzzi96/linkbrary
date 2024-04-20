@@ -7,7 +7,7 @@ const OauthBox = () => {
     <S.OauthBox>
       <p>소셜 로그인</p>
       <div className='button-box'>
-        <button type='button' onClick={() => signIn('naver', { redirect: true, callbackUrl: '/' })}>
+        <button type='button' onClick={() => signIn('naver', { redirect: false })}>
           네이버
         </button>
       </div>
