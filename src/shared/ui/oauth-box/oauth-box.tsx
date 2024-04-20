@@ -1,15 +1,8 @@
-// import { useRef } from 'react';
-
-// import { useNaverInit } from '@entities/oauth/hooks';
-
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
 
 import * as S from './oauth-box-style';
 
 const OauthBox = () => {
-  const { data } = useSession();
-
-  console.log(data);
   return (
     <S.OauthBox>
       <p>소셜 로그인</p>
