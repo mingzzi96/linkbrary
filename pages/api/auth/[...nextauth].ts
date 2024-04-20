@@ -10,6 +10,7 @@ const options = {
       clientSecret: API_NAVER_CLIENT_SECRET,
     }),
   ],
+  debug: true,
 };
 
 export default NextAuth(options);
