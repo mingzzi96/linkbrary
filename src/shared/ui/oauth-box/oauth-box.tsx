@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 
 import * as S from './oauth-box-style';
 
-const CLIENT_ID = '9NjBfBE6YM2diWzMy19n';
+const CLIENT_ID = 'SLY7R7oGdb7SfrybLBri';
 
 const CALLBACK_URL = 'http://localhost:3000/test';
 

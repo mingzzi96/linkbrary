@@ -45,6 +45,8 @@ export const AuthFormWrap = styled.div`
 
     .submit-button {
       margin-top: 30px;
+      font-family: ${({ theme }) => theme.font.pretendard_100};
+      color: ${({ theme }) => theme.color.gray_E7EFFB};
     }
   }
 `;

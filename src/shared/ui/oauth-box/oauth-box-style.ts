@@ -17,7 +17,6 @@ const OauthBox = styled.div`
   .oauth-button {
     width: 42px;
     height: 42px;
-
     img {
       width: 100%;
       height: 100%;

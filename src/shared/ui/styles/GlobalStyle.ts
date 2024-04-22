@@ -1,6 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
 
+import { PretendardFontFace } from './font-face/pretendard';
+
 const GlobalStyle = createGlobalStyle`
+
+${PretendardFontFace}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -14,6 +19,7 @@ body {
   margin: 0;
 
   font-size: 62.5%; /* 1rem = 10px */
+  font-family: 'Pretendard-700', sans-serif;
 
   width: 100%;
   height: 100%;
