@@ -2,7 +2,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 import { HydrationBoundary } from '@tanstack/react-query';
-import { SessionProvider } from 'next-auth/react';
 import styled from 'styled-components';
 
 import LibConfigProviders from '@app/providers/lib-config-provider';
@@ -23,9 +22,7 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
       <GlobalStyle />
       <LibConfigProviders>
         <HydrationBoundary state={pageProps.dehydratedState}>
-          <SessionProvider session={session}>
-            <Component {...pageProps} />
-          </SessionProvider>
+          <Component {...pageProps} />
           <StToastContainer
             position='bottom-center'
             autoClose={4000}
